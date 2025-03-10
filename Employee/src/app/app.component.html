@@ -1,0 +1,89 @@
+<div>
+  <h1 class="heading">Employees</h1>
+  <div class="Table_Container">
+    <table border="1" class="Information_Table">
+      <thead>
+        <tr>
+          <th>ID</th> <!-- ✅ ID Column Added -->
+          <th>Name</th>
+          <th>Gender</th>
+          <th>Department</th>
+          <th>Salary</th>
+          <th>Start Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of list">
+          <td>{{ item.id }}</td>  <!-- ✅ ID Field Show -->
+          <td>
+            <div class="Name_Pic">
+              <img [src]="item.profilePic" alt="Profile" width="20" height="20" [style.borderRadius]="'50%'">
+              {{ item.name }}
+            </div>
+          </td>
+          <td>{{ item.gender }}</td>
+          <td>{{ item.department.join(', ') }}</td>
+          <td>{{ item.salary }}</td>
+          <td>{{ item.startDate }}</td>
+          <td>
+            <button (click)="deleteEmployee(item.id)">Delete</button>
+            <button (click)="editEmployee(item.id)">Edit</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    
+  </div>
+<div class="AddNewContainer">
+  <button *ngIf="!showForm" (click)="showEmployeeForm()" >Add New Member</button>
+</div>
+
+  <div class="form-container" *ngIf="showForm">
+    <h2>Employee Payroll Form</h2>
+    <form (ngSubmit)="submitForm()">
+        <label for="name">Name</label>
+        <input type="text" id="name" [(ngModel)]="employee.name" name="name" required>
+
+        <div class="profile-images">
+            <label>Profile Images</label>
+            <div *ngFor="let img of profilePics" class="profile-option">
+                <label>
+                    <input type="radio" name="profilePic" [value]="img" [(ngModel)]="employee.profilePic">
+                    <img [src]="img" alt="Profile Image" width="40" height="40" [style.borderRadius]="'50%'">
+                </label>
+            </div>
+        </div>
+
+        <label>Gender</label>
+        <div class="gender">
+            <label><input type="radio" name="gender" value="male" [(ngModel)]="employee.gender"> Male</label>
+            <label><input type="radio" name="gender" value="female" [(ngModel)]="employee.gender"> Female</label>
+        </div>
+
+        <label>Department</label>
+        <div class="department">
+            <label *ngFor="let dept of departments">
+                <input type="checkbox" [value]="dept" (change)="updateDepartment($event, dept)"> {{ dept }}
+            </label>
+        </div>
+
+        <label for="salary">Salary</label>
+        <input type="number" id="salary" [(ngModel)]="employee.salary" name="salary" required>
+
+        <label>Start Date</label>
+        <input type="date" id="startDate" [(ngModel)]="employee.startDate" name="startDate" required>
+
+        <label for="notes">Notes</label>
+        <textarea id="notes" [(ngModel)]="employee.note" name="note"></textarea>
+
+        <div class="buttons">
+            <button type="button" (click)="cancelForm()">Cancel</button>
+            <button *ngIf="isEdit" type="button" (click)="updateEmployee()">Update</button>
+            <button *ngIf="!isEdit" type="submit">Submit</button>
+            <button type="reset" (click)="resetForm()">Reset</button>
+        </div>
+    </form>
+</div>
+
+</div>

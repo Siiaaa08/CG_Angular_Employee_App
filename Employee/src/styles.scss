@@ -1,0 +1,300 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  html, body {
+   
+    color:#E6E6FA;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Scroll ko remove karne ke liye */
+  }
+  body{
+    background-image: url("/assets/wallPage.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.heading{
+    text-align: center;
+    font-size: 40px;
+  font-weight: bold;
+  color: linear-gradient(135deg, #7d12c1, #4a0c5d);
+  text-shadow: 
+    0px 0px 5px #662d91,
+    0px 0px 10px #DDA0DD, 
+    0px 0px 20px #4B0082; 
+  letter-spacing: 2px;
+  padding: 40px;
+  }
+
+  
+  .AddNewContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.AddNewContainer button {
+    background: linear-gradient(135deg, #6a0dad, #3b074b); 
+    color: white;
+    font-size: 16px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(106, 13, 173, 0.4); 
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.AddNewContainer button:hover {
+    background: linear-gradient(135deg, #7d12c1, #4a0c5d); 
+    transform: scale(1.05); 
+    box-shadow: 0px 6px 12px rgba(125, 18, 193, 0.6);
+}
+
+.AddNewContainer button:active {
+    background: linear-gradient(135deg, #5b0998, #2a0235); 
+    transform: scale(0.98);
+}
+.form-container {
+    max-width: 500px;
+    background: rgba(36, 36, 36, 0.85); 
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0px 8px 16px rgba(106, 13, 173, 0.4); 
+    margin: 30px auto;
+    color: white;
+    backdrop-filter: blur(12px);
+}
+
+.form-container h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #d1a3ff;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+
+.form-container label {
+    display: block;
+    margin: 12px 0 6px;
+    font-weight: bold;
+    color: #c3a6ff;
+}
+
+.form-container input, 
+.form-container textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #5a0d91;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+    display: block;
+}
+
+.form-container input:focus,
+.form-container textarea:focus {
+    border-color: #8e44ad;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+
+.profile-images {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.profile-option input {
+    display: none;
+}
+
+.profile-option label {
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.profile-option label img {
+    border: 2px solid transparent;
+}
+
+.profile-option input:checked + img {
+    border: 2px solid #d1a3ff; }
+
+
+.gender {
+    display: flex;
+    gap: 20px;
+}
+
+
+.department {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.department label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.buttons button {
+    background: linear-gradient(135deg, #6a0dad, #3b074b);
+    color: white;
+    font-size: 14px;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+    min-width: 100px;
+    text-transform: uppercase;
+}
+
+.buttons button:hover {
+    background: linear-gradient(135deg, #7d12c1, #4a0c5d);
+    transform: scale(1.05);
+}
+
+.buttons button:active {
+    background: linear-gradient(135deg, #5b0998, #2a0235);
+    transform: scale(0.98);
+}
+
+
+.buttons button[type="submit"] {
+    background: linear-gradient(135deg, #4a0072, #8e44ad);
+}
+
+.buttons button[type="submit"]:hover {
+    background: linear-gradient(135deg, #5e0098, #9a5fc6);
+}
+
+
+@media (max-width: 600px) {
+    .buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .buttons button {
+        width: 100%;
+    }
+}
+
+
+.Table_Container {
+    width: 90%;
+    margin: 20px auto;
+    background: rgba(36, 36, 36, 0.8); 
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(106, 13, 173, 0.4); 
+    display: flex;
+    justify-content: center;
+    overflow-x: auto; 
+}
+
+
+.Information_Table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+/* Table Header */
+.Information_Table thead {
+    background: linear-gradient(135deg, #6a0dad, #3b074b);
+    color: white;
+    font-weight: bold;
+}
+
+.Information_Table thead th {
+    padding: 15px;
+    border: 2px solid #8e44ad;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+
+.Information_Table tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.Information_Table tbody tr:nth-child(odd) {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.Information_Table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+
+.Information_Table td {
+    padding: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+
+.Name_Pic {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.Name_Pic img {
+    border-radius: 50%;
+    border: 2px solid #d1a3ff;
+    width: 30px;
+    height: 30px;
+}
+
+
+.Information_Table td .action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.Information_Table button {
+    background: linear-gradient(135deg, #8e44ad, #4a0c5d);
+    color: white;
+    font-size: 14px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    margin:5px ;
+}
+
+.Information_Table button:hover {
+    background: linear-gradient(135deg, #9a5fc6, #5e0098);
+    transform: scale(1.05);
+}
